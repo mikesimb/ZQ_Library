@@ -190,22 +190,7 @@ void CServer_Rebuild_4Dlg::InitializeTabCtrl()
 
 // void CServer_Rebuild_4Dlg::OnBnClickedButton1()
 // {
-// 	// TODO: 在此添加控件通知处理程序代码
-// 	  if(!CMainThread::getInstance()->isRunning())
-// 	  {
-// 		CMainThread::getInstance()->Initialize(false);
-// 		CMainThread::getInstance()->setPort(m_Port);
-// 		CMainThread::getInstance()->Resume();
-// 		m_Btn_Switch.SetWindowText("停止服务");
-// 	  }else
-// 	  { 
-// 		  CMainThread::getInstance()->Terminate();
-// 		  WaitForSingleObject(CMainThread::getInstance()->getThread(),3000);
-// 		  delete(CMainThread::getInstance());
-// 		  m_Btn_Switch.SetWindowText("启动服务");
-// 
-// 
-// 	  }
+
 // 	
 // }
 // 

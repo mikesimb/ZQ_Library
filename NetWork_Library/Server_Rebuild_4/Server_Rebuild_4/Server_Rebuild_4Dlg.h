@@ -37,8 +37,7 @@ protected:
 public:
 // 	afx_msg void OnBnClickedButton1();
 // 	afx_msg void OnClose();
-// 	CButton m_Btn_Switch;
-	//int m_Port;
+
 // 	afx_msg void OnBnClickedCheck1();
 // 	CButton m_output_clientCount;
 
