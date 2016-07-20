@@ -110,24 +110,7 @@ BOOL CServer_Rebuild_4Dlg::OnInitDialog()
 
 	// TODO: 在此添加额外的初始化代码
 
-	m_TabCtrl.InsertItem(0, "控制面板");
-	m_TabCtrl.InsertItem(1, "基本配制");
-
-	m_Tab_ControlPanel.Create(IDD_DIALOG1, GetDlgItem(IDC_TAB1));
-	m_Tab_ControlPanel.ShowWindow(true);
-	CRect rs;
-	
-
-	m_TabCtrl.GetClientRect(&rs);
- 	rs.top += 20;
-// 	rs.bottom -= 60;
-// 	rs.left += 1;
-// 	rs.right -= 2;
-
-	m_Tab_ControlPanel.MoveWindow(&rs);
-
-	m_TabCtrl.SetCurSel(0);
-
+	InitializeTabCtrl();
 
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
@@ -182,6 +165,28 @@ HCURSOR CServer_Rebuild_4Dlg::OnQueryDragIcon()
 }
 
 
+
+void CServer_Rebuild_4Dlg::InitializeTabCtrl()
+{
+	m_TabCtrl.InsertItem(0, "控制面板");
+	m_TabCtrl.InsertItem(1, "数据库配置");
+
+	m_Tab_ControlPanel.Create(IDD_DIALOG1, GetDlgItem(IDC_TAB1));
+	m_Tab_ControlPanel.ShowWindow(true);
+	CRect rs;
+
+
+	m_TabCtrl.GetClientRect(&rs);
+	rs.top += 20;
+	// 	rs.bottom -= 60;
+	// 	rs.left += 1;
+	// 	rs.right -= 2;
+
+	m_Tab_ControlPanel.MoveWindow(&rs);
+
+	m_TabCtrl.SetCurSel(0);
+
+}
 
 // void CServer_Rebuild_4Dlg::OnBnClickedButton1()
 // {

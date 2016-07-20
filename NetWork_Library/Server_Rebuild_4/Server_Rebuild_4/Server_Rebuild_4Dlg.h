@@ -41,6 +41,8 @@ public:
 	//int m_Port;
 // 	afx_msg void OnBnClickedCheck1();
 // 	CButton m_output_clientCount;
+
+	void InitializeTabCtrl();//这个函数是MFC的TabCtrl的典型应用
 	CTabCtrl m_TabCtrl;
 
 	CTab_ControlPanel m_Tab_ControlPanel;
