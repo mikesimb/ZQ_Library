@@ -6,7 +6,7 @@
 #include "afxwin.h"
 #include "afxcmn.h"
 #include "Tab_ControlPanel.h"
-
+#include "Dialog_Mysql.h"
 
 // CServer_Rebuild_4Dlg 对话框
 class CServer_Rebuild_4Dlg : public CDialogEx
@@ -37,12 +37,16 @@ protected:
 public:
 // 	afx_msg void OnBnClickedButton1();
 // 	afx_msg void OnClose();
-
+// 	CButton m_Btn_Switch;
+	//int m_Port;
 // 	afx_msg void OnBnClickedCheck1();
 // 	CButton m_output_clientCount;
 
 	void InitializeTabCtrl();//这个函数是MFC的TabCtrl的典型应用
 	CTabCtrl m_TabCtrl;
+	
 
 	CTab_ControlPanel m_Tab_ControlPanel;
+	CDialog_Mysql m_Dialog_Mysql;
+	afx_msg void OnTcnSelchangeTab1(NMHDR *pNMHDR, LRESULT *pResult);
 };

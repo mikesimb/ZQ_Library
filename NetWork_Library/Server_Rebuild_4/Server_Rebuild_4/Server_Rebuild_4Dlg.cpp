@@ -74,6 +74,7 @@ BEGIN_MESSAGE_MAP(CServer_Rebuild_4Dlg, CDialogEx)
 	//ON_BN_CLICKED(IDC_BUTTON1, &CServer_Rebuild_4Dlg::OnBnClickedButton1)
 	ON_WM_CLOSE()
 	//ON_BN_CLICKED(IDC_CHECK1, &CServer_Rebuild_4Dlg::OnBnClickedCheck1)
+	ON_NOTIFY(TCN_SELCHANGE, IDC_TAB1, &CServer_Rebuild_4Dlg::OnTcnSelchangeTab1)
 END_MESSAGE_MAP()
 
 
@@ -173,6 +174,9 @@ void CServer_Rebuild_4Dlg::InitializeTabCtrl()
 
 	m_Tab_ControlPanel.Create(IDD_DIALOG1, GetDlgItem(IDC_TAB1));
 	m_Tab_ControlPanel.ShowWindow(true);
+
+	m_Dialog_Mysql.Create(IDD_DIALOG2, GetDlgItem(IDC_TAB1));
+	m_Dialog_Mysql.ShowWindow(FALSE);
 	CRect rs;
 
 
@@ -190,7 +194,22 @@ void CServer_Rebuild_4Dlg::InitializeTabCtrl()
 
 // void CServer_Rebuild_4Dlg::OnBnClickedButton1()
 // {
-
+// 	// TODO: 在此添加控件通知处理程序代码
+// 	  if(!CMainThread::getInstance()->isRunning())
+// 	  {
+// 		CMainThread::getInstance()->Initialize(false);
+// 		CMainThread::getInstance()->setPort(m_Port);
+// 		CMainThread::getInstance()->Resume();
+// 		m_Btn_Switch.SetWindowText("停止服务");
+// 	  }else
+// 	  { 
+// 		  CMainThread::getInstance()->Terminate();
+// 		  WaitForSingleObject(CMainThread::getInstance()->getThread(),3000);
+// 		  delete(CMainThread::getInstance());
+// 		  m_Btn_Switch.SetWindowText("启动服务");
+// 
+// 
+// 	  }
 // 	
 // }
 // 
@@ -207,3 +226,39 @@ void CServer_Rebuild_4Dlg::InitializeTabCtrl()
 // {
 // 	// TODO: Add your control notification handler code here
 // }
+
+
+void CServer_Rebuild_4Dlg::OnTcnSelchangeTab1(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	// TODO: Add your control notification handler code here
+	CRect rs;
+
+	*pResult = 0;
+	switch (m_TabCtrl.GetCurSel())
+	{
+	case 0 :
+		m_Tab_ControlPanel.ShowWindow(true);
+		m_TabCtrl.GetClientRect(&rs);
+		rs.top += 20;
+		// 	rs.bottom -= 60;
+		// 	rs.left += 1;
+		// 	rs.right -= 2;
+
+		m_Tab_ControlPanel.MoveWindow(&rs);
+		m_Dialog_Mysql.ShowWindow(false);
+		break;
+	case 1:
+		m_Dialog_Mysql.ShowWindow(true);
+		m_TabCtrl.GetClientRect(&rs);
+		rs.top += 20;
+		// 	rs.bottom -= 60;
+		// 	rs.left += 1;
+		// 	rs.right -= 2;
+
+		m_Dialog_Mysql.MoveWindow(&rs);
+		m_Tab_ControlPanel.ShowWindow(false);
+		break;
+	default:
+		break;
+	}
+}

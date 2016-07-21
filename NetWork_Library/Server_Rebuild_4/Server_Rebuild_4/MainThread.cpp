@@ -6,7 +6,6 @@ static CMainThread * g_mainThread=NULL;
 CMainThread::CMainThread()
 {
 	m_server = new CMessageServer;
-	
 
 }
 
