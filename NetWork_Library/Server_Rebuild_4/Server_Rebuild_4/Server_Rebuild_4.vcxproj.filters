@@ -72,6 +72,12 @@
     <ClInclude Include="Tab_ControlPanel.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Library\Mysql\Mysql_Common.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Dialog_Mysql_V1.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Server_Rebuild_4.cpp">
@@ -108,6 +114,9 @@
       <Filter>ServerSocket</Filter>
     </ClCompile>
     <ClCompile Include="Tab_ControlPanel.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Dialog_Mysql_V1.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

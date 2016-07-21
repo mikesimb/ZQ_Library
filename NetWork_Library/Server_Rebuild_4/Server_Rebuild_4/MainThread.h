@@ -15,6 +15,7 @@ public:
 	bool isRunning() ;
 	void setPort(int port) { m_server->setPort(port); };
 	int getPort() {return m_server->getPort(); };
+	int getServerClientCount() { return m_server->getClientCount(); };
 protected:
 	virtual void Execute();
 	
@@ -23,6 +24,7 @@ private:
 	void stopServer();
 	HWND   m_MainWnd;
 	CMessageServer*  m_server;
+	
 
 
 	

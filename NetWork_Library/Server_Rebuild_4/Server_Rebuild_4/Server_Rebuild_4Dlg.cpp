@@ -174,8 +174,7 @@ void CServer_Rebuild_4Dlg::InitializeTabCtrl()
 
 	m_Tab_ControlPanel.Create(IDD_DIALOG1, GetDlgItem(IDC_TAB1));
 	m_Tab_ControlPanel.ShowWindow(true);
-
-	m_Dialog_Mysql.Create(IDD_DIALOG2, GetDlgItem(IDC_TAB1));
+    m_Dialog_Mysql.Create(IDD_DIALOG3, GetDlgItem(IDC_TAB1));
 	m_Dialog_Mysql.ShowWindow(FALSE);
 	CRect rs;
 

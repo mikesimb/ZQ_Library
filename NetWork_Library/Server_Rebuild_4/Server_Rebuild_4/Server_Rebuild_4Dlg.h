@@ -6,7 +6,7 @@
 #include "afxwin.h"
 #include "afxcmn.h"
 #include "Tab_ControlPanel.h"
-#include "Dialog_Mysql.h"
+#include "Dialog_Mysql_V1.h"
 
 // CServer_Rebuild_4Dlg ¶Ô»°¿ò
 class CServer_Rebuild_4Dlg : public CDialogEx
@@ -47,6 +47,6 @@ public:
 	
 
 	CTab_ControlPanel m_Tab_ControlPanel;
-	CDialog_Mysql m_Dialog_Mysql;
+	CDialog_Mysql_V1 m_Dialog_Mysql;
 	afx_msg void OnTcnSelchangeTab1(NMHDR *pNMHDR, LRESULT *pResult);
 };
