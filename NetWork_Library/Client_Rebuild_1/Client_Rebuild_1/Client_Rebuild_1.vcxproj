@@ -190,6 +190,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Library\SocketServer\Protocol.h" />
     <ClInclude Include="..\..\Library\SocketServer\ZQCustomClient.h" />
     <ClInclude Include="..\..\Library\SocketServer\ZQNetCommon.h" />
     <ClInclude Include="Client_Rebuild_1.h" />

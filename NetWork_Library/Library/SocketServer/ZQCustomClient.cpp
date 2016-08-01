@@ -26,7 +26,7 @@ void CZQCustomClient::DoRevice(pBlock data, int buflen)
 	{
 		data->MsgBuf[buflen + 1] = '#0';
 		char str[255];
-		sprintf_s(str, 255, "BufferLen is :%d", buflen);
+		sprintf_s(str, 255, "BufferLen is :%d,Buffer is :%s", buflen,data->MsgBuf);
 		OutputDebugString(str);
 		SocketRead(data, buflen);
 		if (m_socket != INVALID_SOCKET)
@@ -75,6 +75,9 @@ void CZQCustomClient::ReadyReviceNextData(pBlock data)
 			OutputDebugString("function is Error :CZQCustomClient::ReadReviceData(pBlock data, int buflen) ");
 		}
 	}
+	else
+		OutputDebugString(LPCTSTR(data->MsgBuf));
+
 }
 
 void CZQCustomClient::ReadySendNextData(pBlock data, int buflen)

@@ -3,6 +3,7 @@
 #include <WS2tcpip.h>
 
 #include "ZQNetCommon.h"
+#include "Protocol.h"
 
 
 CZQClient::CZQClient()
@@ -63,13 +64,24 @@ void CZQClient::Disconnect()
 
 void CZQClient::doWriteSocket()
 {
-	pBlock buf = (pBlock)malloc(sizeof(Block));
+	pS2CMsg msg = new S2CMsg;
+	msg->MsgHeader = S2C_Msg_FLAG;
+	msg->Reserved = 0;
+	int len = sizeof(ServertoClientMsg);
+	pServertoClient scMsg = new ServertoClientMsg;
+	scMsg->MsgHandle = CM_Login;
+
+	send(this->sHost, (char*)scMsg, 10, 0);
+
+}
 
 
-	
-	buf->OperatorType = ioWrite;
-	buf->buf.len = 10;
-	buf->buf.buf = "didadida";
-	send(this->sHost, (char*)buf, sizeof(Block), 0);
+void CZQClient::doReadSocket()
+{
+
+}
+
+char* CZQClient::MakeSocketMsg(char* buf,int buflen)
+{
 
 }

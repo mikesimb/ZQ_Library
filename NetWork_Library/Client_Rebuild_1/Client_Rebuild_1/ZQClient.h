@@ -19,6 +19,8 @@ public:
 	//读取网络数据
 	void  doReadSocket();
 
+	char* MakeSocketMsg(char* buf, int buflen);
+
 
 	//写入网络数据
 	void doWriteSocket();
