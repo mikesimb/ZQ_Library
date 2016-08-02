@@ -34,6 +34,17 @@ void CZQClient::Initialize()
 
 }
 
+void CZQClient::UnInitialize()
+{
+	
+	if (INVALID_SOCKET == sHost)
+	{
+		//cout << "socket failed!" << endl;
+		closesocket(sHost);
+		return;
+	}
+}
+
 void CZQClient::Connect()
 {
 	servAddr.sin_family = AF_INET;
@@ -78,6 +89,10 @@ void CZQClient::doWriteSocket()
 
 	//send(this->sHost, "bbbbbbb",10, 0);
 	send(this->sHost, (char*)buf, len+sizeof(S2CMsg), 0);
+	buf1 = NULL;
+	free(buf);
+	delete scMsg;
+	delete msg;
 }
 
 

@@ -25,11 +25,11 @@ void CZQCustomClient::DoRevice(pBlock data, int buflen)
 	if (buflen > 0)
 	{
 		data->MsgBuf[buflen + 1] = '0';
-		pS2CMsg msg = new S2CMsg;
+		pS2CMsg msg = NULL;
 		msg = (pS2CMsg)data->MsgBuf;
 		if (msg->MsgHeader == S2C_Msg_FLAG)
 		{
-			pServertoClient scmsg = new ServertoClientMsg;
+			pServertoClient scmsg =NULL;
 			scmsg = pServertoClient((char*)msg + sizeof(S2CMsg));
 			if (scmsg->MsgHandle == CM_Login)
 			{
@@ -37,6 +37,7 @@ void CZQCustomClient::DoRevice(pBlock data, int buflen)
 			}
 
 		}
+		
 		SocketRead(data, buflen);
 		if (m_socket != INVALID_SOCKET)
 			ReadyReviceNextData(data);
