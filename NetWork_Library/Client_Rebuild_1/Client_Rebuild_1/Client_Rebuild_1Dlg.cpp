@@ -67,6 +67,8 @@ BEGIN_MESSAGE_MAP(CClient_Rebuild_1Dlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON1, &CClient_Rebuild_1Dlg::OnBnClickedButton1)
 	ON_BN_CLICKED(IDC_BUTTON2, &CClient_Rebuild_1Dlg::OnBnClickedButton2)
 	ON_BN_CLICKED(IDC_BUTTON3, &CClient_Rebuild_1Dlg::OnBnClickedButton3)
+	ON_WM_CLOSE()
+	ON_WM_DESTROY()
 END_MESSAGE_MAP()
 
 
@@ -179,4 +181,22 @@ void CClient_Rebuild_1Dlg::OnBnClickedButton3()
 {
 	// TODO: Add your control notification handler code here
 	m_client->doWriteSocket();
+}
+
+
+void CClient_Rebuild_1Dlg::OnClose()
+{
+	// TODO: 在此添加消息处理程序代码和/或调用默认值
+
+	CDialogEx::OnClose();
+}
+
+
+void CClient_Rebuild_1Dlg::OnDestroy()
+{
+	CDialogEx::OnDestroy();
+
+	// TODO: 在此处添加消息处理程序代码
+	m_client->UnInitialize();
+	delete m_client;
 }
