@@ -193,6 +193,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Library\Mysql\Mysql_Common.h" />
+    <ClInclude Include="..\..\Library\SocketServer\Protocol.h" />
     <ClInclude Include="..\..\Library\SocketServer\ZQAcceptThread.h" />
     <ClInclude Include="..\..\Library\SocketServer\ZQCustomClient.h" />
     <ClInclude Include="..\..\Library\SocketServer\ZQCustomIOCPServer.h" />

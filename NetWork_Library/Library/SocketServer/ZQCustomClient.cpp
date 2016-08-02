@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "ZQCustomClient.h"
+#include "Protocol.h"
 
 
 CZQCustomClient::CZQCustomClient()
@@ -21,13 +22,21 @@ CZQCustomClient::~CZQCustomClient()
 
 void CZQCustomClient::DoRevice(pBlock data, int buflen)
 {
-	
 	if (buflen > 0)
 	{
-		data->MsgBuf[buflen + 1] = '#0';
-		char str[255];
-		sprintf_s(str, 255, "BufferLen is :%d,Buffer is :%s", buflen,data->MsgBuf);
-		OutputDebugString(str);
+		data->MsgBuf[buflen + 1] = '0';
+		pS2CMsg msg = new S2CMsg;
+		msg = (pS2CMsg)data->MsgBuf;
+		if (msg->MsgHeader == S2C_Msg_FLAG)
+		{
+			pServertoClient scmsg = new ServertoClientMsg;
+			scmsg = pServertoClient((char*)msg + sizeof(S2CMsg));
+			if (scmsg->MsgHandle == CM_Login)
+			{
+				OutputDebugString("CM_Login is Successed!!!");
+			}
+
+		}
 		SocketRead(data, buflen);
 		if (m_socket != INVALID_SOCKET)
 			ReadyReviceNextData(data);
@@ -60,14 +69,14 @@ void CZQCustomClient::DoSend(pBlock data, int buflen)
 
 void CZQCustomClient::ReadyReviceNextData(pBlock data)
 {
-	DWORD Transfer;
+	DWORD Transfer=0;
 	DWORD flags = 0;
 	DWORD ErrorCode;
 	data->OperatorType = ioRead;
 	data->buf.len = sizeof(data->MsgBuf);
 	data->buf.buf = data->MsgBuf;
 	memset(&data->overloapped, sizeof(WSAOVERLAPPED), 0);
-	if ((m_socket == INVALID_SOCKET) || (WSARecv(m_socket, &data->buf, 1, (LPDWORD)(&Transfer), (LPDWORD)(&flags), (LPWSAOVERLAPPED)&data->overloapped, NULL) == SOCKET_ERROR))
+	if ((m_socket == INVALID_SOCKET) || (WSARecv(m_socket, &(data->buf), 1, (LPDWORD)(&Transfer), (LPDWORD)(&flags), (LPWSAOVERLAPPED)&(data->overloapped), NULL) == SOCKET_ERROR))
 	{
 		ErrorCode = GetLastError();
 		if (ErrorCode != ERROR_IO_PENDING)
@@ -75,8 +84,26 @@ void CZQCustomClient::ReadyReviceNextData(pBlock data)
 			OutputDebugString("function is Error :CZQCustomClient::ReadReviceData(pBlock data, int buflen) ");
 		}
 	}
+	/*
 	else
-		OutputDebugString(LPCTSTR(data->MsgBuf));
+	{
+		
+		pS2CMsg msg = new S2CMsg;
+		msg = (pS2CMsg)data->MsgBuf;
+		if (msg->MsgHeader == S2C_Msg_FLAG)
+		{
+			pServertoClient scmsg = new ServertoClientMsg;
+			scmsg = pServertoClient((char*)msg + sizeof(S2CMsg));
+			if (scmsg->MsgHandle == CM_Login)
+			{
+				OutputDebugString("CM_Login is Successed!!!");
+			}
+
+		}
+		
+	}
+	*/
+		
 
 }
 

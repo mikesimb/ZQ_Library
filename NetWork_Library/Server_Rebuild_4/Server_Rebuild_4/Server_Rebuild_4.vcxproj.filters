@@ -78,6 +78,9 @@
     <ClInclude Include="Dialog_Mysql_V1.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Library\SocketServer\Protocol.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Server_Rebuild_4.cpp">

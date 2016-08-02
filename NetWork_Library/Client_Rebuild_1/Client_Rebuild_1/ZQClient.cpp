@@ -70,9 +70,14 @@ void CZQClient::doWriteSocket()
 	int len = sizeof(ServertoClientMsg);
 	pServertoClient scMsg = new ServertoClientMsg;
 	scMsg->MsgHandle = CM_Login;
+	char * buf =(char *)malloc(len + sizeof(S2CMsg));;
+	char * buf1 =buf;
+	memcpy_s(buf1, sizeof(S2CMsg), msg, sizeof(S2CMsg));
+	buf1 = buf1 + sizeof(S2CMsg);
+	memcpy_s(buf1, sizeof(ServertoClientMsg), scMsg, sizeof(ServertoClientMsg));
 
-	send(this->sHost, (char*)scMsg, 10, 0);
-
+	//send(this->sHost, "bbbbbbb",10, 0);
+	send(this->sHost, (char*)buf, len+sizeof(S2CMsg), 0);
 }
 
 
@@ -83,5 +88,5 @@ void CZQClient::doReadSocket()
 
 char* CZQClient::MakeSocketMsg(char* buf,int buflen)
 {
-
+	return NULL;
 }
