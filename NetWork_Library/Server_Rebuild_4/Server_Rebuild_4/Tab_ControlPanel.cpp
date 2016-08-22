@@ -32,6 +32,7 @@ void CTab_ControlPanel::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CTab_ControlPanel, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON1, &CTab_ControlPanel::OnBnClickedButton1)
+	ON_WM_DESTROY()
 END_MESSAGE_MAP()
 
 
@@ -55,4 +56,18 @@ void CTab_ControlPanel::OnBnClickedButton1()
 		  delete(CMainThread::getInstance());
 		  m_Btn_Switch.SetWindowText("启动服务");
 	  }
+}
+
+
+void CTab_ControlPanel::OnDestroy()
+{
+	CDialogEx::OnDestroy();
+	if (CMainThread::getInstance()->isRunning())
+	{
+		CMainThread::getInstance()->Terminate();
+		WaitForSingleObject(CMainThread::getInstance()->getThread(), 3000);
+		delete(CMainThread::getInstance());
+	}
+
+	// TODO: 在此处添加消息处理程序代码
 }

@@ -210,7 +210,7 @@ void CZQCustomClient::AddNode(pBlock data)
 	char * Buf;
 	EnterCriticalSection(&m_SendCS);
 	Node = new ClientSendDataNode;
-	Buf = (char*)malloc(data->buf.len);
+	Buf = (char*)new char[data->buf.len];
 	memset(Buf, 0, data->buf.len);
 	Node->Buf = Buf;
 	Node->buflen = data->buf.len;

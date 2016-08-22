@@ -1,7 +1,7 @@
 
 // Server_Rebuild_4.cpp : 定义应用程序的类行为。
 //
-
+#include "crtdbg.h"
 #include "stdafx.h"
 #include "Server_Rebuild_4.h"
 #include "Server_Rebuild_4Dlg.h"
@@ -11,7 +11,12 @@
 #endif
 
 
-// CServer_Rebuild_4App
+inline void EnableMemLeakCheck()
+{
+	_CrtSetDbgFlag(_CrtSetDbgFlag(_CRTDBG_REPORT_FLAG) | _CRTDBG_LEAK_CHECK_DF);
+}// CServer_Rebuild_4App
+
+
 
 BEGIN_MESSAGE_MAP(CServer_Rebuild_4App, CWinApp)
 	ON_COMMAND(ID_HELP, &CWinApp::OnHelp)
@@ -24,6 +29,8 @@ CServer_Rebuild_4App::CServer_Rebuild_4App()
 {
 	// 支持重新启动管理器
 	m_dwRestartManagerSupportFlags = AFX_RESTART_MANAGER_SUPPORT_RESTART;
+
+
 
 	// TODO: 在此处添加构造代码，
 	// 将所有重要的初始化放置在 InitInstance 中
@@ -39,6 +46,7 @@ CServer_Rebuild_4App theApp;
 
 BOOL CServer_Rebuild_4App::InitInstance()
 {
+	EnableMemLeakCheck();
 	// 如果一个运行在 Windows XP 上的应用程序清单指定要
 	// 使用 ComCtl32.dll 版本 6 或更高版本来启用可视化方式，
 	//则需要 InitCommonControlsEx()。  否则，将无法创建窗口。

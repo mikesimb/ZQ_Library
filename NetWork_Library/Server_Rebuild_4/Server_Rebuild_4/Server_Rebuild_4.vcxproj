@@ -74,8 +74,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>D:\Program Files %28x86%29\mysql-5.7.9-win32\include;../../Library/Mysql;../../Library/Thread;../../Library/SocketServer;$(ProjectDir);$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Program Files %28x86%29\mysql-5.7.9-win32\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\Program Files %28x86%29\mysql-5.7.14-win32\include;../../Library/Mysql;../../Library/Thread;../../Library/SocketServer;$(ProjectDir);$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Program Files %28x86%29\mysql-5.7.14-win32\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -189,9 +189,8 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
+    <ClInclude Include="..\..\Library\File\FileUtils.h" />
+    <ClInclude Include="..\..\Library\Log\Log.h" />
     <ClInclude Include="..\..\Library\Mysql\Mysql_Common.h" />
     <ClInclude Include="..\..\Library\SocketServer\Protocol.h" />
     <ClInclude Include="..\..\Library\SocketServer\ZQAcceptThread.h" />
@@ -200,6 +199,7 @@
     <ClInclude Include="..\..\Library\SocketServer\ZQCustomServerClient.h" />
     <ClInclude Include="..\..\Library\SocketServer\ZQNetCommon.h" />
     <ClInclude Include="..\..\Library\SocketServer\ZQWorkThread.h" />
+    <ClInclude Include="..\..\Library\String\ZQString.h" />
     <ClInclude Include="..\..\Library\Thread\ZQThread.h" />
     <ClInclude Include="Dialog_Mysql_V1.h" />
     <ClInclude Include="MainThread.h" />
@@ -212,11 +212,14 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Library\File\FileUtils.cpp" />
+    <ClCompile Include="..\..\Library\Log\Log.cpp" />
     <ClCompile Include="..\..\Library\SocketServer\ZQAcceptThread.cpp" />
     <ClCompile Include="..\..\Library\SocketServer\ZQCustomClient.cpp" />
     <ClCompile Include="..\..\Library\SocketServer\ZQCustomIOCPServer.cpp" />
     <ClCompile Include="..\..\Library\SocketServer\ZQCustomServerClient.cpp" />
     <ClCompile Include="..\..\Library\SocketServer\ZQWorkThread.cpp" />
+    <ClCompile Include="..\..\Library\String\ZQString.cpp" />
     <ClCompile Include="..\..\Library\Thread\ZQThread.cpp" />
     <ClCompile Include="Dialog_Mysql_V1.cpp" />
     <ClCompile Include="MainThread.cpp" />

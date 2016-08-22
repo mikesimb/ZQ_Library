@@ -27,4 +27,5 @@ public:
 	
 	int m_port;
 	CButton m_Btn_Switch;
+	afx_msg void OnDestroy();
 };

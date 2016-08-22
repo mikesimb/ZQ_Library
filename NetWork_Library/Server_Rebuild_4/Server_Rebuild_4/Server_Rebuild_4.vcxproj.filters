@@ -24,9 +24,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="Server_Rebuild_4.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -81,6 +78,15 @@
     <ClInclude Include="..\..\Library\SocketServer\Protocol.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Library\Log\Log.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Library\File\FileUtils.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Library\String\ZQString.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Server_Rebuild_4.cpp">
@@ -120,6 +126,15 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Dialog_Mysql_V1.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Library\Log\Log.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Library\File\FileUtils.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Library\String\ZQString.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
