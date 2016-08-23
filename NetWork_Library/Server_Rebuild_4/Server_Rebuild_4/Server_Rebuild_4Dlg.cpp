@@ -7,11 +7,12 @@
 #include "Server_Rebuild_4Dlg.h"
 #include "afxdialogex.h"
 #include "MainThread.h"
-
+#include "Log.h"
+#include "ZQString.h"
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
-
+#define WM_WRITE_LOG WM_USER+9
 
 // 用于应用程序“关于”菜单项的 CAboutDlg 对话框
 
@@ -43,6 +44,7 @@ void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
+	
 END_MESSAGE_MAP()
 
 
@@ -75,6 +77,9 @@ BEGIN_MESSAGE_MAP(CServer_Rebuild_4Dlg, CDialogEx)
 	ON_WM_CLOSE()
 	//ON_BN_CLICKED(IDC_CHECK1, &CServer_Rebuild_4Dlg::OnBnClickedCheck1)
 	ON_NOTIFY(TCN_SELCHANGE, IDC_TAB1, &CServer_Rebuild_4Dlg::OnTcnSelchangeTab1)
+	ON_MESSAGE(WM_WRITE_LOG, &CServer_Rebuild_4Dlg::OnWriteLog)
+	ON_BN_CLICKED(IDOK2, &CServer_Rebuild_4Dlg::OnBnClickedOk2)
+	ON_WM_DESTROY()
 END_MESSAGE_MAP()
 
 
@@ -111,7 +116,12 @@ BOOL CServer_Rebuild_4Dlg::OnInitDialog()
 
 	// TODO: 在此添加额外的初始化代码
 
+	CLog::getInstance()->InitializeLogFile();
+
+
 	InitializeTabCtrl();
+
+	//CLog::getInstance()->InitializeLogFile();
 
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
@@ -177,55 +187,11 @@ void CServer_Rebuild_4Dlg::InitializeTabCtrl()
     m_Dialog_Mysql.Create(IDD_DIALOG3, GetDlgItem(IDC_TAB1));
 	m_Dialog_Mysql.ShowWindow(FALSE);
 	CRect rs;
-
-
 	m_TabCtrl.GetClientRect(&rs);
 	rs.top += 20;
-	// 	rs.bottom -= 60;
-	// 	rs.left += 1;
-	// 	rs.right -= 2;
-
 	m_Tab_ControlPanel.MoveWindow(&rs);
-
 	m_TabCtrl.SetCurSel(0);
-
 }
-
-// void CServer_Rebuild_4Dlg::OnBnClickedButton1()
-// {
-// 	// TODO: 在此添加控件通知处理程序代码
-// 	  if(!CMainThread::getInstance()->isRunning())
-// 	  {
-// 		CMainThread::getInstance()->Initialize(false);
-// 		CMainThread::getInstance()->setPort(m_Port);
-// 		CMainThread::getInstance()->Resume();
-// 		m_Btn_Switch.SetWindowText("停止服务");
-// 	  }else
-// 	  { 
-// 		  CMainThread::getInstance()->Terminate();
-// 		  WaitForSingleObject(CMainThread::getInstance()->getThread(),3000);
-// 		  delete(CMainThread::getInstance());
-// 		  m_Btn_Switch.SetWindowText("启动服务");
-// 
-// 
-// 	  }
-// 	
-// }
-// 
-
-// void CServer_Rebuild_4Dlg::OnClose()
-// {
-// 	// TODO: 在此添加消息处理程序代码和/或调用默认值
-// 	
-// 	CDialogEx::OnClose();
-// }
-// 
-// 
-// void CServer_Rebuild_4Dlg::OnBnClickedCheck1()
-// {
-// 	// TODO: Add your control notification handler code here
-// }
-
 
 void CServer_Rebuild_4Dlg::OnTcnSelchangeTab1(NMHDR *pNMHDR, LRESULT *pResult)
 {
@@ -260,4 +226,34 @@ void CServer_Rebuild_4Dlg::OnTcnSelchangeTab1(NMHDR *pNMHDR, LRESULT *pResult)
 	default:
 		break;
 	}
+}
+
+
+
+afx_msg LRESULT CServer_Rebuild_4Dlg::OnWriteLog(WPARAM wParam, LPARAM lParam)
+{
+ 	char * chr = (char*)wParam;
+ 	CLog::getInstance()->WriteLog(chr, lParam);
+	m_Tab_ControlPanel.AddMessageToListBox(chr, lParam);
+	return 0;
+}
+
+
+void CServer_Rebuild_4Dlg::OnBnClickedOk2()
+{
+ 	CZQString str = "1234567890";
+// 	// TODO: 在此添加控件通知处理程序代码
+	char* chr = str;
+	
+	SendMessage(WM_WRITE_LOG, (WPARAM)chr, str.GetLength());
+}
+
+
+void CServer_Rebuild_4Dlg::OnDestroy()
+{
+	CDialogEx::OnDestroy();
+
+	CLog::FreeInstance();
+
+	// TODO: 在此处添加消息处理程序代码
 }

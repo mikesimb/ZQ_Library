@@ -108,3 +108,9 @@ BOOL CServer_Rebuild_4App::InitInstance()
 	return FALSE;
 }
 
+BOOL CServer_Rebuild_4App::OnIdle(LONG lCount)
+{
+	if (CWinApp::OnIdle(lCount))
+		return TRUE;
+}
+

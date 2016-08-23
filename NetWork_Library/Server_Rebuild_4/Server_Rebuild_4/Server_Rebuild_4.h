@@ -23,6 +23,7 @@ public:
 // ÷ÿ–¥
 public:
 	virtual BOOL InitInstance();
+	virtual BOOL OnIdle(LONG lCount);
 
 //  µœ÷
 

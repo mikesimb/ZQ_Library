@@ -22,6 +22,15 @@
     <Filter Include="MainThread">
       <UniqueIdentifier>{7923c6a1-9da1-46d0-8bde-9070c8ae66da}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Log">
+      <UniqueIdentifier>{2766e975-b200-47fa-b68c-30f369b2350b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Files">
+      <UniqueIdentifier>{3167da92-57ae-4c4f-972c-78c54d41a63d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="String">
+      <UniqueIdentifier>{c6c013e8-d566-4aa7-a3d3-51e3b900bd7f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Server_Rebuild_4.h">
@@ -79,13 +88,13 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Library\Log\Log.h">
-      <Filter>头文件</Filter>
+      <Filter>Log</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Library\File\FileUtils.h">
-      <Filter>头文件</Filter>
+      <Filter>Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Library\String\ZQString.h">
-      <Filter>头文件</Filter>
+      <Filter>String</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -129,13 +138,13 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Library\Log\Log.cpp">
-      <Filter>源文件</Filter>
+      <Filter>Log</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Library\File\FileUtils.cpp">
-      <Filter>源文件</Filter>
+      <Filter>Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Library\String\ZQString.cpp">
-      <Filter>源文件</Filter>
+      <Filter>String</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

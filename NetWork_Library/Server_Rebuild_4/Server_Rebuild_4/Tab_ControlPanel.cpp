@@ -27,6 +27,7 @@ void CTab_ControlPanel::DoDataExchange(CDataExchange* pDX)
 	CDialogEx::DoDataExchange(pDX);
 	DDX_Text(pDX, IDC_EDIT2, m_port);
 	DDX_Control(pDX, IDC_BUTTON1, m_Btn_Switch);
+	DDX_Control(pDX, IDC_LIST1, m_logList);
 }
 
 
@@ -59,15 +60,15 @@ void CTab_ControlPanel::OnBnClickedButton1()
 }
 
 
+void CTab_ControlPanel::AddMessageToListBox(char * buffer, DWORD dwLength)
+{
+	m_logList.AddString(buffer);
+}
+
 void CTab_ControlPanel::OnDestroy()
 {
 	CDialogEx::OnDestroy();
-	if (CMainThread::getInstance()->isRunning())
-	{
-		CMainThread::getInstance()->Terminate();
-		WaitForSingleObject(CMainThread::getInstance()->getThread(), 3000);
-		delete(CMainThread::getInstance());
-	}
+	CMainThread::FreeInstance();
 
 	// TODO: 在此处添加消息处理程序代码
 }

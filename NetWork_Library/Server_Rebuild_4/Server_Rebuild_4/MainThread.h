@@ -8,6 +8,7 @@ public:
 	CMainThread();
 	virtual ~CMainThread();
 	static CMainThread* getInstance();
+	static void FreeInstance();
 	void SetMainWindowHwnd(HWND value){ value = m_MainWnd; };
 	HWND getMainWindowHwnd(){return m_MainWnd; };
 	virtual BOOL Initialize(BOOL bSuspended  = FALSE, unsigned int uStackSize  = 0 );
@@ -24,11 +25,5 @@ private:
 	void stopServer();
 	HWND   m_MainWnd;
 	CMessageServer*  m_server;
-	
-
-
-	
-	
-
 };
 

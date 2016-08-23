@@ -59,6 +59,17 @@ CMainThread* CMainThread::getInstance()
 
 }
 
+void CMainThread::FreeInstance()
+{
+	if (g_mainThread == NULL) return;
+	if (g_mainThread->isRunning())
+	{
+		g_mainThread->Terminate();
+		WaitForSingleObject(g_mainThread->getThread(), 3000);
+		delete(CMainThread::getInstance());
+	}
+}
+
 BOOL CMainThread::Initialize(BOOL bSuspended /* = FALSE */, unsigned int uStackSize /* = 0 */)
 {
 	CZQThread::Initialize(bSuspended, uStackSize);

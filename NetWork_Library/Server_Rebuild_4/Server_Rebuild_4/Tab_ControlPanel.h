@@ -24,8 +24,11 @@ protected:
 public:
 	afx_msg void OnBnClickedButton1();
 
+	void AddMessageToListBox(char * buffer, DWORD dwLength);
+
 	
 	int m_port;
 	CButton m_Btn_Switch;
 	afx_msg void OnDestroy();
+	CListBox m_logList;
 };

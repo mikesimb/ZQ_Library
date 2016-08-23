@@ -12,7 +12,6 @@ CLog::CLog()
 
 CLog::~CLog()
 {
-
 	delete m_szFileName;
 }
 
@@ -21,6 +20,12 @@ CLog* CLog::getInstance()
 	if (g_log == NULL)
 		g_log = new CLog();
 	return g_log;
+}
+
+void CLog::FreeInstance()
+{
+	if (g_log != NULL)
+		delete g_log;
 }
 
 void CLog::InitializeLogFile()

@@ -8,6 +8,7 @@
 #include "Tab_ControlPanel.h"
 #include "Dialog_Mysql_V1.h"
 
+
 // CServer_Rebuild_4Dlg ¶Ô»°¿ò
 class CServer_Rebuild_4Dlg : public CDialogEx
 {
@@ -49,4 +50,9 @@ public:
 	CTab_ControlPanel m_Tab_ControlPanel;
 	CDialog_Mysql_V1 m_Dialog_Mysql;
 	afx_msg void OnTcnSelchangeTab1(NMHDR *pNMHDR, LRESULT *pResult);
+protected:
+	afx_msg LRESULT OnWriteLog(WPARAM wParam, LPARAM lParam);
+public:
+	afx_msg void OnBnClickedOk2();
+	afx_msg void OnDestroy();
 };
