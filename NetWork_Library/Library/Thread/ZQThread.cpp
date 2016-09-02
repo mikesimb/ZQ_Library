@@ -1,8 +1,7 @@
 #include "stdafx.h"
 #include "ZQThread.h"
 
-
-
+//类型构造函数
 CZQThread::CZQThread()
 {
 	m_dwThreadID = 0;
@@ -12,7 +11,7 @@ CZQThread::CZQThread()
 	ThreadName = "";
 }
 
-
+//类型析构函数
 CZQThread::~CZQThread()
 {
 	if (m_hThread != INVALID_HANDLE_VALUE)
@@ -27,6 +26,7 @@ CZQThread::~CZQThread()
 	}
 }
 
+//初始化线程  不许调用。
 BOOL CZQThread::Initialize(BOOL bSuspended /*= FALSE*/, unsigned int uStackSize /*= 0*/)
 {
 	unsigned int dwThreadID;
@@ -54,6 +54,7 @@ BOOL CZQThread::Initialize(BOOL bSuspended /*= FALSE*/, unsigned int uStackSize 
 
 }
 
+//线程挂起
 BOOL CZQThread::Suspend(void)
 {
 	//执行挂起线程操作。
@@ -71,6 +72,7 @@ BOOL CZQThread::Suspend(void)
 	}
 }
 
+//恢复线程。
 BOOL CZQThread::Resume(void)
 {
 	//首先判断如果线程处于非挂起状态那么退出；
@@ -93,6 +95,8 @@ BOOL CZQThread::Resume(void)
 	}
 }
 
+
+//终止线程
 void CZQThread::Terminate(void)
 {
 	//强制设置m_bTerminated = true;
@@ -101,6 +105,7 @@ void CZQThread::Terminate(void)
 
 }
 
+//等待线程
 void CZQThread::WaitFor(const DWORD dwTimeOut /*= MAX_WAIT_FOR_TIME*/)
 {
 	//如果线程句柄有效
@@ -111,17 +116,20 @@ void CZQThread::WaitFor(const DWORD dwTimeOut /*= MAX_WAIT_FOR_TIME*/)
 	}
 }
 
+
+//线程是否被终止
 BOOL CZQThread::Terminated(void)
 {
 	return  m_bTerminated;
 }
 
-
+//线程名字
 void CZQThread::SetThreadName(char * name)
 {
 	ThreadName = name;
 }
 
+//线程调用过程。
 unsigned WINAPI  CZQThread::ThreadProc(LPVOID pParam)
 {
 	CZQThread * pThead = (CZQThread *)pParam;

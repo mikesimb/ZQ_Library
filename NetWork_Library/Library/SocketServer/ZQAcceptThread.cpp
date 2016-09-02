@@ -56,10 +56,6 @@ void CZQAcceptThread::Execute()
 		HeapFree(GetProcessHeap(), 0, lpPerIOData);
 		*/
 		//data = (pBlock)malloc(sizeof(Block));
-
-
-
-		
 	}
 	PostQueuedCompletionStatus(m_ParentSocket->m_hCompletionPort, 0, 0, LPOVERLAPPED(SHUTDOWN_FLAG));
 

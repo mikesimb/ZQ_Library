@@ -18,9 +18,6 @@ class CZQThread
 public:
 	CZQThread();
 	virtual ~CZQThread();
-
-	
-
 public:
 	//启动线程
 	virtual BOOL  Initialize(BOOL bSuspended = FALSE, unsigned int uStackSize = 0);
@@ -36,26 +33,22 @@ public:
 
 	//等待线程
 	void WaitFor(const DWORD dwTimeOut = Max_Wait_for_Timeout);
-
+	//获取线程ID
 	const char * getThreadID() { return (char *)m_dwThreadID; }
+	//获取线程句柄以CHAR类型。
 	const char * getThreadHandle(){ return (char *)m_hThread; }
+	//获取线程句柄以HANDLE类型
 	HANDLE  getThread() { return m_hThread; };
 	//线程是否终止
 	BOOL Terminated(void);
-
 	//设置线程名称
 	void SetThreadName(char * name);
-
-
-
 protected:
-
-
 	//执行过程
 	virtual void Execute(void) = 0;
 	//终止事件
 	virtual void OnTerminate(void) { OutputDebugString(ThreadName.c_str()); };
-
+	//是否终止
 	volatile BOOL m_bTerminated;
 
 private:
@@ -65,11 +58,8 @@ private:
 	HANDLE m_hThread;
 	//当前是否挂起
 	BOOL m_bIsSuspended;
-	//线程同步事件
-
 	//线程的名字
 	std::string ThreadName;
-
 	//线程过程
 	static unsigned WINAPI ThreadProc(LPVOID pParam);
 };

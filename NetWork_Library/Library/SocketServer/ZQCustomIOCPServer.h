@@ -48,19 +48,26 @@ protected:
 private:
 	 //服务器的监听SOCKET;
 	SOCKET  m_socket;
+	//服务器的IP地址
 	char      m_address[16];
+	//端口号
 	int         m_port;
+	//完成端口好
 	HANDLE   m_hCompletionPort;
-	int   m_iWorkThreadCount;
+	//服务器的负责运行的工作线程数
+	int   m_iWorkThreadCount;	
 	pBlock   m_pBlock;
+	//服务器是否开启
 	bool m_isRunning;
-
+	//客户端列表的临界区
 	CRITICAL_SECTION  m_ClientCS;
-
+	//负责监听的线程
 	CZQAcceptThread * m_AcceptThread;
+	//工作线程数组
 	CZQWorkThread ** m_WorkThread;
-
+	//处于激活状态的客户端列表
 	std::list<CZQCustomServerClient *> m_ClientList;
+	//处于非激活状态的客户端列表
 	std::list<CZQCustomServerClient *> m_FreeClientList;
 
 	
