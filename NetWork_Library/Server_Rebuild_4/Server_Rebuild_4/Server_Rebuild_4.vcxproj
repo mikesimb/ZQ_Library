@@ -203,6 +203,7 @@
     <ClInclude Include="..\..\Library\String\ZQString.h" />
     <ClInclude Include="..\..\Library\Thread\ZQThread.h" />
     <ClInclude Include="Dialog_Mysql_V1.h" />
+    <ClInclude Include="IOCPTypeDef.h" />
     <ClInclude Include="MainThread.h" />
     <ClInclude Include="MessageServer.h" />
     <ClInclude Include="Resource.h" />
@@ -211,6 +212,7 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Tab_ControlPanel.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="ZQCustomIOCPSocket.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Library\File\FileUtils.cpp" />
@@ -223,6 +225,7 @@
     <ClCompile Include="..\..\Library\String\ZQString.cpp" />
     <ClCompile Include="..\..\Library\Thread\ZQThread.cpp" />
     <ClCompile Include="Dialog_Mysql_V1.cpp" />
+    <ClCompile Include="IOCPTypeDef.cpp" />
     <ClCompile Include="MainThread.cpp" />
     <ClCompile Include="MessageServer.cpp" />
     <ClCompile Include="Server_Rebuild_4.cpp" />
@@ -234,6 +237,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Tab_ControlPanel.cpp" />
+    <ClCompile Include="ZQCustomIOCPSocket.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Server_Rebuild_4.rc" />

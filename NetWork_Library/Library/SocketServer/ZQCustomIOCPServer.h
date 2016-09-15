@@ -46,14 +46,7 @@ protected:
 //	virtual  CZQCustomClient * OnCreateClient();
 	OnCreateSocketClientNotifyEvent  m_CreateSocketClient;
 private:
-	 //服务器的监听SOCKET;
-	SOCKET  m_socket;
-	//服务器的IP地址
-	char      m_address[16];
-	//端口号
-	int         m_port;
-	//完成端口好
-	HANDLE   m_hCompletionPort;
+
 	//服务器的负责运行的工作线程数
 	int   m_iWorkThreadCount;	
 	pBlock   m_pBlock;

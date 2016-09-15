@@ -96,6 +96,12 @@
     <ClInclude Include="..\..\Library\String\ZQString.h">
       <Filter>String</Filter>
     </ClInclude>
+    <ClInclude Include="ZQCustomIOCPSocket.h">
+      <Filter>ServerSocket</Filter>
+    </ClInclude>
+    <ClInclude Include="IOCPTypeDef.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Server_Rebuild_4.cpp">
@@ -145,6 +151,12 @@
     </ClCompile>
     <ClCompile Include="..\..\Library\String\ZQString.cpp">
       <Filter>String</Filter>
+    </ClCompile>
+    <ClCompile Include="ZQCustomIOCPSocket.cpp">
+      <Filter>ServerSocket</Filter>
+    </ClCompile>
+    <ClCompile Include="IOCPTypeDef.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
