@@ -50,6 +50,12 @@ class CZQ_IOCPServerSocket;
 class CZQ_IOCPWorkThread;
 class CZQ_CustomClientSocketPool;
 
+typedef struct {
+	SOCKET socket;
+	char   IP[16];
+	uint16_t  port;
+}IOCPSOCKET;
+
 //完成端口缓冲区结构
 typedef struct _Block
 {
