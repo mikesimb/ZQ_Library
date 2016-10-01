@@ -29,7 +29,7 @@ public:
 	uint32_t getSocketHandle();
 
 protected:
-	void OnSocketEvent(int ErrorCode);
+	void OnErrorEvent(int ErrorCode);
 	virtual void initialize();
 	virtual void finalize();
 	virtual void socketRead(void *buf, int count);
@@ -38,7 +38,7 @@ private:
 	void doClientRead(pBlock pRBlock, int transfered);
 	void doClientSend(pBlock pSBlock, int transfered);
 	void prepareRecv(pBlock pRBlock);
-	void prepareSend(pBlock pSBlock);
+	void prepareSend(pBlock pSBlock,int iSendlen);
 	void clearSendBuffer();
 
 private:
@@ -62,6 +62,11 @@ private:
 	pSendQueueNode  _firstQueueNode;
 	pSendQueueNode  _lastQueueNode;
 
+	OnSocketErrorEvent _onSocketErrorEvent;
+	
+	SocketReviceEvent _onReviceEvent;
+
+	uint64_t _uactiveTick;
 
 
 };
