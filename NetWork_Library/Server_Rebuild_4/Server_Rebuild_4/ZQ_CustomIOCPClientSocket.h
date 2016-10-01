@@ -30,6 +30,39 @@ public:
 
 protected:
 	void OnSocketEvent(int ErrorCode);
+	virtual void initialize();
+	virtual void finalize();
+	virtual void socketRead(void *buf, int count);
+
+private:
+	void doClientRead(pBlock pRBlock, int transfered);
+	void doClientSend(pBlock pSBlock, int transfered);
+	void prepareRecv(pBlock pRBlock);
+	void prepareSend(pBlock pSBlock);
+	void clearSendBuffer();
+
+private:
+	HANDLE _hIOCP;
+	SOCKET  _socket;
+	CZQString _remoteAddress;
+	int _remotePort;
+	char* _data;
+	uint32_t  _socketHandle;
+	Block    _sendBlock;
+	Block    _readBlock;
+
+	int     _totalBufferlen;
+	RTL_CRITICAL_SECTION  _sendBufferCS;
+	bool   isSending;
+
+	uint64_t   _currentTick;
+
+	uint32_t  _totalSendDataCount;
+
+	pSendQueueNode  _firstQueueNode;
+	pSendQueueNode  _lastQueueNode;
+
+
 
 };
 #endif // 

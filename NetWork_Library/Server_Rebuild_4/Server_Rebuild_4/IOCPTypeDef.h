@@ -73,7 +73,7 @@ typedef struct _SendQueueNode
 	int iBufferLen;
 	int iStartPosition;
 	_SendQueueNode* next;
-};
+}SendQueueNode,*pSendQueueNode;
 //这个队列是
 typedef struct _HASH_PORT_ITEM
 {
