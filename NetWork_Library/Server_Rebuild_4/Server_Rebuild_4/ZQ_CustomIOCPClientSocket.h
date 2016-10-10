@@ -53,7 +53,7 @@ private:
 
 	int     _totalBufferlen;
 	RTL_CRITICAL_SECTION  _sendBufferCS;
-	bool   isSending;
+	bool   _isSending;
 
 	uint64_t   _currentTick;
 

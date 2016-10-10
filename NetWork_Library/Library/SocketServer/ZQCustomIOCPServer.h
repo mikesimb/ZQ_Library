@@ -63,6 +63,10 @@ private:
 	//处于非激活状态的客户端列表
 	std::list<CZQCustomServerClient *> m_FreeClientList;
 
+	int m_port;
+	SOCKET m_socket;
+	HANDLE m_hCompletionPort;
+
 	
 };
 

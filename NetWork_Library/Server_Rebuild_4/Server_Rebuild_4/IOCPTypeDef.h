@@ -87,7 +87,7 @@ typedef struct _CustomClientListSocketNode
 {
 	CZQ_CustomIOCPClientSocket* clientSocket;
 	_CustomClientListSocketNode * next;
-};
+}CustomClientListSocketNode,*pCustomClientListSocketNode;
 
 
 //基础的消息类型

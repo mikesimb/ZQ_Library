@@ -5,7 +5,6 @@
 #include "stdafx.h"
 #include "Server_Rebuild_4.h"
 #include "Server_Rebuild_4Dlg.h"
-#include <vld.h>
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
