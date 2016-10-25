@@ -18,7 +18,7 @@ public:
 	SocketNotifyEvent OnSocketDisconnect;
 
 	HANDLE   getIOCPHandle();
-	IOCPSOCKET * getIOCPSOCKET();
+	IOCPSOCKET* getIOCPSOCKET();
 	CZQString getServerIP();
 	void setServerIP(CZQString IPAddress);
 	int getServerPort();
@@ -30,7 +30,7 @@ public:
 
 	virtual void setActive(bool bActive) = 0;
 	virtual void freeclient(CZQ_CustomIOCPClientSocket* client) = 0;
-	virtual void activestart() = 0;
+	virtual bool activestart() = 0;
 	virtual void activestop() = 0;
 
 	void socketErrorEvent(CZQ_CustomIOCPClientSocket* clientsocket, int errorCode);

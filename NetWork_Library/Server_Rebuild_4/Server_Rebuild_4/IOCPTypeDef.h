@@ -21,7 +21,7 @@ int strToint(CZQString str);
 #define SHUTDOWN_FLAG			( 0xFFFFFFFF)
 #define DISCONNECT_FLAG			( 0xFFFFFFFE)
 
-#define WORK_THREAD_SIZE		( 16)
+#define MAX_WORK_THREAD_SIZE		( 16)
 #define HASH_IPITEM_BUCKETS		( 2047 )
 #define MAX_CHECK_TIMEOUT		( 30 * 1000)
 #define MAX_ACTIVE_TIMEOUT		( 10 * 60)
@@ -46,15 +46,15 @@ enum  SocketEvent {
 class CZQ_CustomIOCPClientSocket;
 class CZQ_CustomIOCPSocket;
 class CZQ_IOCPClientSocket;
-class CZQ_IOCPServerSocket;
-class CZQ_IOCPWorkThread;
+class CZQ_CustomIOCPServerSocket;
+class CZQ_WorkThread;
 class CZQ_CustomClientSocketPool;
 
-typedef struct {
+typedef struct tagIOCPSOCKET {
 	SOCKET socket;
 	char   IP[16];
 	uint16_t  port;
-}IOCPSOCKET;
+}IOCPSOCKET,*pIOCPSOCKET;
 
 //完成端口缓冲区结构
 typedef struct _Block

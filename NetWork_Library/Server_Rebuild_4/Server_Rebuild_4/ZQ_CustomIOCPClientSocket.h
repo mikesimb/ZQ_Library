@@ -69,6 +69,10 @@ private:
 	uint64_t _uactiveTick;
 
 
+	friend CZQ_WorkThread;
+	friend CZQ_CustomIOCPServerSocket;
+
+
 };
 #endif // 
 
