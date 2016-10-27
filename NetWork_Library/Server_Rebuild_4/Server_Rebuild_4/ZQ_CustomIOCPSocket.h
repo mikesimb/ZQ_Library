@@ -13,7 +13,9 @@ public:
 	//发生错误的回调函数
 	SocketErrorEvent  OnSocketError;
 	//连接成功通知
-	SocketNotifyEvent OnSocketSuccess;
+	SocketNotifyEvent OnConnectCallBack;
+
+	SocketNotifyEvent OnDisConnectCallBack;
 	//连接断开通知
 	SocketNotifyEvent OnSocketDisconnect;
 

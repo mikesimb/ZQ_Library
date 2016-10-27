@@ -5,7 +5,8 @@
 CZQ_CustomIOCPSocket::CZQ_CustomIOCPSocket()
 	:_hIOCP(0)
 	,OnSocketError(nullptr)
-	,OnSocketSuccess(nullptr)
+	,OnConnectCallBack(nullptr)
+	,OnDisConnectCallBack(nullptr)
 	,OnSocketDisconnect(nullptr)
 {
 	_IOCPSOCKET.socket = INVALID_SOCKET;

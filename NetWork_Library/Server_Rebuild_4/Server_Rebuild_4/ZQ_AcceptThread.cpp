@@ -184,7 +184,7 @@ void CZQ_WorkThread::Execute()
 		}//catch
 	}//while
 
-	PostQueuedCompletionStatus(_parentSocket->getIOCPHandle(), 0, 0(LPOVERLAPPED)SHUTDOWN_FLAG);
+	PostQueuedCompletionStatus(_parentSocket->getIOCPHandle(), 0, 0,(LPOVERLAPPED)SHUTDOWN_FLAG);
 	if (_boMaster)
 		_parentSocket->activestop();
 

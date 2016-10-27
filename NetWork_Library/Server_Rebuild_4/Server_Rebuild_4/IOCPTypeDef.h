@@ -1,13 +1,18 @@
 #ifndef  _CIOCPTypeDef_H__
 #define  _CIOCPTypeDef_H__
+
+
 //Á´½Ó¾²Ì¬µÄSOKCET¿â
 #pragma comment(lib, "ws2_32.Lib")
+
 
 #include <WinSock2.h>
 #include <stdint.h>
 #include <functional>
 #include <process.h>
 #include "ZQString.h"
+
+
 
 bool WSAStartupSocket();
 bool WSACleanupSocket();
@@ -48,6 +53,7 @@ class CZQ_CustomIOCPSocket;
 class CZQ_IOCPClientSocket;
 class CZQ_CustomIOCPServerSocket;
 class CZQ_WorkThread;
+class CZQ_AcceptThread;
 class CZQ_CustomClientSocketPool;
 
 typedef struct tagIOCPSOCKET {

@@ -1,10 +1,10 @@
 #ifndef _ZQ_CustomIOCPServerSocket__H_  
 #define _ZQ_CustomIOCPServerSocket__H_   
-#include "ZQThread.h"
 #include "IOCPTypeDef.h"
 #include "ZQ_CustomIOCPClientSocket.h"
 #include "ZQ_CustomIOCPSocket.h"
 #include "ZQ_ClientSocketPool.h"
+#include "ZQ_AcceptThread.h"
 #include <vector>
 #include "ZQString.h"
 class CZQ_CustomIOCPServerSocket:public  CZQ_CustomIOCPSocket
@@ -47,9 +47,9 @@ private:
 	CZQ_ClientSocketPool* _freeClientPool;
 	uint64_t _timeOutCheckTick;
 	//这里是一个接受线程
-	CAcceptThread*  _acceptThread;
+	CZQ_AcceptThread* _acceptThread;
 
-	std::vector<CZQ_IOCPWorkThread*> _workThreads;
+	std::vector<CZQ_WorkThread*> _workThreads;
 	uint32_t _currentHandle;
 
 	pHashPortItem * portItemFind(uint32_t key);
@@ -61,7 +61,7 @@ private:
 	virtual void setActive(bool bActive);
 	void freeCorpseClient();
 
-	virtual void FreeClient(CZQ_CustomIOCPClientSocket * clientSocket) override;
+	virtual void FreeClient(CZQ_CustomIOCPClientSocket * clientSocket);
 
 	virtual bool activeStart();
 	virtual void activeStop();

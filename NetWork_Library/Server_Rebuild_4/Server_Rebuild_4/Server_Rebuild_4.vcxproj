@@ -22,6 +22,7 @@
     <ProjectGuid>{8A77C2E0-302A-4C2C-9729-A9A5D14C766D}</ProjectGuid>
     <RootNamespace>Server_Rebuild_4</RootNamespace>
     <Keyword>MFCProj</Keyword>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -43,7 +44,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
     <UseOfMfc>Dynamic</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -95,6 +96,7 @@
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>../../Library/String;../../Library/Log;../../Library/Thread;../../Library/SocketServer;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/_WINSOCK_DEPRECATED_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -118,11 +120,12 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>D:\Program Files %28x86%29\mysql-5.7.14-win32\include\mysql\psi;..\..\Library\String;..\..\Library\SocketServer;..\..\Library\SocketClient;..\..\Library\Thread;..\..\Library\Mysql;..\..\Library\Log;..\..\Library\Ini;..\..\Library\File;..\..\Library\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files\MySQL\MySQL Server 5.7\include\;..\..\Library\String;..\..\Library\SocketServer;..\..\Library\SocketClient;..\..\Library\Thread;..\..\Library\Mysql;..\..\Library\Log;..\..\Library\Ini;..\..\Library\File;..\..\Library\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Program Files\MySQL\MySQL Server 5.7\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -213,7 +216,10 @@
     <ClInclude Include="Tab_ControlPanel.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="ZQCustomIOCPSocket.h" />
+    <ClInclude Include="ZQ_AcceptThread.h" />
+    <ClInclude Include="ZQ_ClientSocketPool.h" />
     <ClInclude Include="ZQ_CustomIOCPClientSocket.h" />
+    <ClInclude Include="ZQ_CustomIOCPServerSocket.h" />
     <ClInclude Include="ZQ_CustomIOCPSocket.h" />
   </ItemGroup>
   <ItemGroup>
@@ -240,7 +246,10 @@
     </ClCompile>
     <ClCompile Include="Tab_ControlPanel.cpp" />
     <ClCompile Include="ZQCustomIOCPSocket.cpp" />
+    <ClCompile Include="ZQ_AcceptThread.cpp" />
+    <ClCompile Include="ZQ_ClientSocketPool.cpp" />
     <ClCompile Include="ZQ_CustomIOCPClientSocket.cpp" />
+    <ClCompile Include="ZQ_CustomIOCPServerSocket.cpp" />
     <ClCompile Include="ZQ_CustomIOCPSocket.cpp" />
   </ItemGroup>
   <ItemGroup>
