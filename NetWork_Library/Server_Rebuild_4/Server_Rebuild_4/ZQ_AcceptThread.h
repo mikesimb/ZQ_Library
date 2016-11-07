@@ -24,13 +24,13 @@ private:
 class CZQ_WorkThread :public CZQThread
 {
 public:
-	CZQ_WorkThread(CZQ_CustomIOCPServerSocket* parentSocket, bool boMaster = false);
+	CZQ_WorkThread(CZQ_CustomIOCPSocket* parentSocket, bool boMaster = false);
 	virtual ~CZQ_WorkThread();
 
 	void Execute();
 private:
 	bool _boMaster;
-	CZQ_CustomIOCPServerSocket* _parentSocket;
+	CZQ_CustomIOCPSocket* _parentSocket;
 
 };
 

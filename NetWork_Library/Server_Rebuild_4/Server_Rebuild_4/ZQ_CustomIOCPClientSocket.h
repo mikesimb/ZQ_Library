@@ -71,6 +71,7 @@ private:
 
 	friend CZQ_WorkThread;
 	friend CZQ_CustomIOCPServerSocket;
+	friend CZQ_ClientIOCPSocket;
 
 
 };

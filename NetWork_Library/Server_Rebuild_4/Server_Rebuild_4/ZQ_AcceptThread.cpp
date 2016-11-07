@@ -97,7 +97,7 @@ int __stdcall Condition(IN LPWSABUF lpCallerId, IN LPWSABUF lpCallerData, IN LPQ
 		return CF_REJECT;
 }
 
-CZQ_WorkThread::CZQ_WorkThread(CZQ_CustomIOCPServerSocket* parentSocket, bool boMaster /*= false*/)
+CZQ_WorkThread::CZQ_WorkThread(CZQ_CustomIOCPSocket* parentSocket, bool boMaster /*= false*/)
 {
 	_parentSocket = parentSocket;
 	_boMaster = boMaster;
