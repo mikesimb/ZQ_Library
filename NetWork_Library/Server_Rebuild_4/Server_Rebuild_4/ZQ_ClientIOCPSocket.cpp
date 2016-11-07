@@ -29,7 +29,8 @@ CZQ_CustomIOCPClientSocket * CZQ_ClientIOCPSocket::getSocket()
 
 void CZQ_ClientIOCPSocket::setOnReadEvent(SocketReviceEvent readEvent)
 {
-	
+
+	_activeSocket->_onReviceEvent = readEvent;
 }
 
 void CZQ_ClientIOCPSocket::setActive(bool value)
