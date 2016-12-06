@@ -19,10 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{8A77C2E0-302A-4C2C-9729-A9A5D14C766D}</ProjectGuid>
-    <RootNamespace>Server_Rebuild_4</RootNamespace>
+    <ProjectGuid>{F661D4E1-E6F7-47D7-8021-9F6C6DD52D66}</ProjectGuid>
+    <RootNamespace>Server_Rebuild_5</RootNamespace>
     <Keyword>MFCProj</Keyword>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -44,7 +43,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
     <UseOfMfc>Dynamic</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -75,12 +74,11 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>D:\Program Files\mysql-5.7.16-winx64\include;../../Library/Mysql;../../Library/Thread;../../Library/SocketServer;$(ProjectDir);$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Program Files\mysql-5.7.16-winx64\lib;$(LibraryPath)</LibraryPath>
+    <ExecutablePath>$(ExecutablePath)</ExecutablePath>
+    <IncludePath>../../../Library/String;../../../Library/thread;../../../Library/common;../../../Library/SocketLib;../../../Library;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -95,13 +93,10 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>D:\Program Files\mysql-5.7.16-winx64\include\mysql;../../Library/String;../../Library/Log;../../Library/Thread;../../Library/SocketServer;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>/_WINSOCK_DEPRECATED_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>../../../Library/String;../../../Library/thread;../../../Library/common;../../../Library/SocketLib;../../../Library;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\Program Files\mysql-5.7.16-winx64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -121,12 +116,9 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Program Files\MySQL\MySQL Server 5.7\include\;..\..\Library\String;..\..\Library\SocketServer;..\..\Library\SocketClient;..\..\Library\Thread;..\..\Library\Mysql;..\..\Library\Log;..\..\Library\Ini;..\..\Library\File;..\..\Library\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Program Files\MySQL\MySQL Server 5.7\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -153,7 +145,6 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -180,7 +171,6 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -194,82 +184,62 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Library\File\FileUtils.h" />
-    <ClInclude Include="..\..\Library\Log\Log.h" />
-    <ClInclude Include="..\..\Library\Mysql\Mysql_Common.h" />
-    <ClInclude Include="..\..\Library\SocketServer\Protocol.h" />
-    <ClInclude Include="..\..\Library\SocketServer\ZQAcceptThread.h" />
-    <ClInclude Include="..\..\Library\SocketServer\ZQCustomClient.h" />
-    <ClInclude Include="..\..\Library\SocketServer\ZQCustomIOCPServer.h" />
-    <ClInclude Include="..\..\Library\SocketServer\ZQCustomServerClient.h" />
-    <ClInclude Include="..\..\Library\SocketServer\ZQNetCommon.h" />
-    <ClInclude Include="..\..\Library\SocketServer\ZQWorkThread.h" />
-    <ClInclude Include="..\..\Library\String\ZQString.h" />
-    <ClInclude Include="..\..\Library\Thread\ZQThread.h" />
-    <ClInclude Include="Dialog_Mysql_V1.h" />
-    <ClInclude Include="IOCPTypeDef.h" />
-    <ClInclude Include="MainThread.h" />
-    <ClInclude Include="MessageServer.h" />
-    <ClInclude Include="Resource.h" />
-    <ClInclude Include="Server_Rebuild_4.h" />
-    <ClInclude Include="Server_Rebuild_4Dlg.h" />
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="Tab_ControlPanel.h" />
-    <ClInclude Include="targetver.h" />
-    <ClInclude Include="ZQCustomIOCPSocket.h" />
-    <ClInclude Include="ZQ_AcceptThread.h" />
-    <ClInclude Include="ZQ_ClientIOCPSocket.h" />
-    <ClInclude Include="ZQ_ClientSocketPool.h" />
-    <ClInclude Include="ZQ_CustomIOCPClientSocket.h" />
-    <ClInclude Include="ZQ_CustomIOCPServerSocket.h" />
-    <ClInclude Include="ZQ_CustomIOCPSocket.h" />
+    <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Library\File\FileUtils.cpp" />
-    <ClCompile Include="..\..\Library\Log\Log.cpp" />
-    <ClCompile Include="..\..\Library\SocketServer\ZQAcceptThread.cpp" />
-    <ClCompile Include="..\..\Library\SocketServer\ZQCustomClient.cpp" />
-    <ClCompile Include="..\..\Library\SocketServer\ZQCustomIOCPServer.cpp" />
-    <ClCompile Include="..\..\Library\SocketServer\ZQCustomServerClient.cpp" />
-    <ClCompile Include="..\..\Library\SocketServer\ZQWorkThread.cpp" />
-    <ClCompile Include="..\..\Library\String\ZQString.cpp" />
-    <ClCompile Include="..\..\Library\Thread\ZQThread.cpp" />
-    <ClCompile Include="Dialog_Mysql_V1.cpp" />
-    <ClCompile Include="IOCPTypeDef.cpp" />
+    <ClInclude Include="..\..\..\Library\common\ZQCommon.h" />
+    <ClInclude Include="..\..\..\Library\SocketLib\IOCPTypeDef.h" />
+    <ClInclude Include="..\..\..\Library\SocketLib\ZQ_AcceptThread.h" />
+    <ClInclude Include="..\..\..\Library\SocketLib\ZQ_ClientSocketPool.h" />
+    <ClInclude Include="..\..\..\Library\SocketLib\ZQ_CustomIOCPClientSocket.h" />
+    <ClInclude Include="..\..\..\Library\SocketLib\ZQ_CustomIOCPServerSocket.h" />
+    <ClInclude Include="..\..\..\Library\SocketLib\ZQ_CustomIOCPSocket.h" />
+    <ClInclude Include="..\..\..\Library\String\ZQString.h" />
+    <ClInclude Include="..\..\..\Library\Thread\ZQThread.h" />
+    <ClInclude Include="MainThread.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="Server_Rebuild_5.h" />
+    <ClInclude Include="Server_Rebuild_5Dlg.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="ZQ_MainServer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\Library\common\ZQCommon.cpp" />
+    <ClCompile Include="..\..\..\Library\SocketLib\IOCPTypeDef.cpp" />
+    <ClCompile Include="..\..\..\Library\SocketLib\ZQ_AcceptThread.cpp" />
+    <ClCompile Include="..\..\..\Library\SocketLib\ZQ_ClientSocketPool.cpp" />
+    <ClCompile Include="..\..\..\Library\SocketLib\ZQ_CustomIOCPClientSocket.cpp" />
+    <ClCompile Include="..\..\..\Library\SocketLib\ZQ_CustomIOCPServerSocket.cpp" />
+    <ClCompile Include="..\..\..\Library\SocketLib\ZQ_CustomIOCPSocket.cpp" />
+    <ClCompile Include="..\..\..\Library\String\ZQString.cpp" />
+    <ClCompile Include="..\..\..\Library\Thread\ZQThread.cpp" />
     <ClCompile Include="MainThread.cpp" />
-    <ClCompile Include="MessageServer.cpp" />
-    <ClCompile Include="Server_Rebuild_4.cpp" />
-    <ClCompile Include="Server_Rebuild_4Dlg.cpp" />
+    <ClCompile Include="Server_Rebuild_5.cpp" />
+    <ClCompile Include="Server_Rebuild_5Dlg.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="Tab_ControlPanel.cpp" />
-    <ClCompile Include="ZQCustomIOCPSocket.cpp" />
-    <ClCompile Include="ZQ_AcceptThread.cpp" />
-    <ClCompile Include="ZQ_ClientIOCPSocket.cpp" />
-    <ClCompile Include="ZQ_ClientSocketPool.cpp" />
-    <ClCompile Include="ZQ_CustomIOCPClientSocket.cpp" />
-    <ClCompile Include="ZQ_CustomIOCPServerSocket.cpp" />
-    <ClCompile Include="ZQ_CustomIOCPSocket.cpp" />
+    <ClCompile Include="ZQ_MainServer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="Server_Rebuild_4.rc" />
+    <ResourceCompile Include="Server_Rebuild_5.rc" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\Server_Rebuild_4.rc2" />
+    <None Include="res\Server_Rebuild_5.rc2" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\Server_Rebuild_4.ico" />
+    <Image Include="res\Server_Rebuild_5.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties RESOURCE_FILE="Server_Rebuild_4.rc" />
+      <UserProperties RESOURCE_FILE="Server_Rebuild_5.rc" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
