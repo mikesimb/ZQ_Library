@@ -26,7 +26,7 @@ public:
 	int getServerPort();
 	void setServerPort(const int Port);
 
-	bool isAcriveed();
+	bool isActiveed();
 	void open();
 	void close();
 

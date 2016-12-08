@@ -12,13 +12,14 @@ public:
 	virtual ~CZQ_ClientIOCPSocket();
 	CZQ_CustomIOCPClientSocket * getSocket();
 	void setOnReadEvent(SocketReviceEvent readEvent);
+	virtual void freeclient(CZQ_CustomIOCPClientSocket* clientSocket) ;
+	virtual bool activestart();
+	virtual void activestop();
 private:
 	CZQ_CustomIOCPClientSocket * _activeSocket;
 	CZQ_WorkThread* _workThread;
 	virtual void setActive(bool value);
-	virtual void freeClient(CZQ_CustomIOCPClientSocket* clientSocket) ;
-	virtual bool acitvestart();
-	virtual void activestop();
+	
 	
 };
 #endif
