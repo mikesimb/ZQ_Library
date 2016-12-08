@@ -143,7 +143,7 @@ void CZQ_MessageNodeNoLockQueue::cleanQueue()
 	} while (0);
 }
 
-void CZQ_MessageNodeNoLockQueue::touch(MessageQueueTouchProc touchProc)
+void CZQ_MessageNodeNoLockQueue::touch(ZQ_MessageQueueTouchProc touchProc)
 {
 	do {
 		ServerMsgNode* pNode = nullptr;
@@ -164,7 +164,7 @@ void CZQ_MessageNodeNoLockQueue::touch(MessageQueueTouchProc touchProc)
 	} while (0);
 }
 
-void CZQ_MessageNodeNoLockQueue::touch(MessageQueueTouchProc2 touchproc)
+void CZQ_MessageNodeNoLockQueue::touch(ZQ_MessageQueueTouchProc2 touchproc)
 {
   do 
   {
@@ -244,7 +244,7 @@ void CZQ_MessageNodeQueue::cleanQueue()
 
 }
 
-void CZQ_MessageNodeQueue::touch(MessageQueueTouchProc touchProc)
+void CZQ_MessageNodeQueue::touch(ZQ_MessageQueueTouchProc touchProc)
 {
 	EnterCriticalSection(&_dataCS);
 
@@ -254,7 +254,7 @@ void CZQ_MessageNodeQueue::touch(MessageQueueTouchProc touchProc)
 
 }
 
-void CZQ_MessageNodeQueue::toucn(MessageQueueTouchProc2 touchProc)
+void CZQ_MessageNodeQueue::toucn(ZQ_MessageQueueTouchProc2 touchProc)
 {
 	EnterCriticalSection(&_dataCS);
 

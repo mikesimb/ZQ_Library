@@ -29,7 +29,7 @@ IOCPSOCKET * CZQ_CustomIOCPSocket::getIOCPSOCKET()
 
 void CZQ_CustomIOCPSocket::setServerIP(CZQString IPAddress)
 {
-	if (_IOCPSOCKET.socket == INVALID_SOCKET && IPAddress.GetLength() <= 0)
+	if (_IOCPSOCKET.socket == INVALID_SOCKET && (IPAddress.GetLength() <= 16))
 	{
 		memset(_IOCPSOCKET.IP, 0, 16);
 		memcpy(_IOCPSOCKET.IP, (char*)IPAddress, IPAddress.GetLength());

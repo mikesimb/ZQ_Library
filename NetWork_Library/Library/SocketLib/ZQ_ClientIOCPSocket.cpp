@@ -68,7 +68,7 @@ void CZQ_ClientIOCPSocket::setActive(bool value)
 
 }
 
-void CZQ_ClientIOCPSocket::freeClient(CZQ_CustomIOCPClientSocket* clientSocket)
+void CZQ_ClientIOCPSocket::freeclient(CZQ_CustomIOCPClientSocket* clientSocket)
 {
 	if (clientSocket == _activeSocket
 		&& _IOCPSOCKET.socket != INVALID_SOCKET)
@@ -81,7 +81,7 @@ void CZQ_ClientIOCPSocket::freeClient(CZQ_CustomIOCPClientSocket* clientSocket)
 	}
 }
 
-bool CZQ_ClientIOCPSocket::acitvestart()
+bool CZQ_ClientIOCPSocket::activestart()
 {
 	bool result = false;
 	if (_IOCPSOCKET.socket != INVALID_SOCKET
@@ -107,10 +107,10 @@ bool CZQ_ClientIOCPSocket::acitvestart()
 				toAddr.sin_family = PF_INET;
 				WSAHtons(_IOCPSOCKET.socket, _IOCPSOCKET.port, &toAddr.sin_port);
 				toAddr.sin_addr.S_un.S_addr = inet_addr(_IOCPSOCKET.IP);
-
+				CZQString A = _IOCPSOCKET.IP;
 				//关联完成端口
 				_activeSocket->_socket = _IOCPSOCKET.socket;
-				_activeSocket->_remoteAddress = _IOCPSOCKET.IP;
+				//_activeSocket->_remoteAddress = A;
 				_activeSocket->_remotePort = _IOCPSOCKET.port;
 				_activeSocket->_socketHandle = _IOCPSOCKET.socket;
 				_activeSocket->_hIOCP = _hIOCP;
@@ -151,11 +151,15 @@ bool CZQ_ClientIOCPSocket::acitvestart()
 					}
 				}
 			}//if
+			else
+				DWORD errorcode = GetLastError();
 		}//if
+		
 
 	}//try
 	catch (...)
 	{
+		DWORD errorcode = GetLastError();
 	}
 	return result;
 }

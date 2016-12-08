@@ -3,7 +3,7 @@
 //
 
 #pragma once
-
+#include "ZQ_IOCPClient.h"
 
 // CClient_Rebuild_2Dlg 对话框
 class CClient_Rebuild_2Dlg : public CDialogEx
@@ -24,6 +24,8 @@ public:
 // 实现
 protected:
 	HICON m_hIcon;
+
+	CZQ_IOCPClient* m_client;
 
 	// 生成的消息映射函数
 	virtual BOOL OnInitDialog();

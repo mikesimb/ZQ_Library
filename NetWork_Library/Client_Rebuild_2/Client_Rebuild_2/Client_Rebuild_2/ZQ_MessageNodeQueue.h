@@ -1,8 +1,8 @@
 #pragma once
 
 #include "IOCPTypeDef.h"
-#define MessageQueueTouchProc std::function<void(MsgRef*)>
-#define MessageQueueTouchProc2 std::function<void(ServerMsgNode*)>
+#define ZQ_MessageQueueTouchProc std::function<void(MsgRef*)>
+#define ZQ_MessageQueueTouchProc2 std::function<void(ServerMsgNode*)>
 
 typedef struct ServerMsgNode
 {
@@ -33,8 +33,8 @@ public:
 
 	virtual void cleanQueue();         
 
-	virtual void touch(MessageQueueTouchProc touchProc);
-	virtual void touch(MessageQueueTouchProc2 touchproc);
+	virtual void touch(ZQ_MessageQueueTouchProc touchProc);
+	virtual void touch(ZQ_MessageQueueTouchProc2 touchproc);
 protected:
 	ServerMsgNode * _firstMsgNode = nullptr;
 	ServerMsgNode* _lastMsgNode = nullptr;
@@ -57,8 +57,8 @@ public:
 
 	virtual void cleanQueue();
 
-	virtual void touch(MessageQueueTouchProc touchProc);
-	virtual void toucn(MessageQueueTouchProc2  touchProc);
+	virtual void touch(ZQ_MessageQueueTouchProc touchProc);
+	virtual void toucn(ZQ_MessageQueueTouchProc2  touchProc);
 private:
 	RTL_CRITICAL_SECTION _dataCS;
 

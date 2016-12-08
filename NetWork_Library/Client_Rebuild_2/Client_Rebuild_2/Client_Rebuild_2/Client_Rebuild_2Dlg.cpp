@@ -158,4 +158,8 @@ HCURSOR CClient_Rebuild_2Dlg::OnQueryDragIcon()
 void CClient_Rebuild_2Dlg::OnBnClickedButton1()
 {
 	// TODO: 在此添加控件通知处理程序代码
+
+	m_client = new CZQ_IOCPClient();
+	m_client->init();
+	m_client->connect("10.240.43.28",10078);
 }
