@@ -117,7 +117,7 @@ CZQ_WorkThread::~CZQ_WorkThread()
 
 void CZQ_WorkThread::Execute()
 {
-	if (!_parentSocket->activestart() && _boMaster )
+	if ( _boMaster && !_parentSocket->activestart() )
 	{
 		Sleep(200);
 		_parentSocket->activestop();

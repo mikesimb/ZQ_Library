@@ -58,10 +58,10 @@ void CZQ_MainServer::ClientSocketDisconnect(CZQ_CustomIOCPClientSocket* clientso
 
 void CZQ_MainServer::StartServer(int port)
 {
-	if (isActiveed() && !_isRequestListen)
+	if (!isActiveed() && !_isRequestListen)
 	{
-		setServerIP("0,0,0,0");
-		setServerPort(7809);
+		setServerIP("0.0.0.0");
+		setServerPort(port);
 		open();
 		_isRequestListen = true;
 	}

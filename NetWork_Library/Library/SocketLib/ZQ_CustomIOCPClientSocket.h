@@ -46,7 +46,7 @@ private:
 private:
 	HANDLE _hIOCP;
 	SOCKET  _socket;
-	CZQString _remoteAddress="";
+	CZQString _remoteAddress;// = "0.0.0.0";
 	int _remotePort;
 	char* _data;
 	uint32_t  _socketHandle;

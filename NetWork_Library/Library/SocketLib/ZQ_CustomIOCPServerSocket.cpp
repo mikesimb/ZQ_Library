@@ -148,7 +148,6 @@ void CZQ_CustomIOCPServerSocket::socketAccept(SOCKET socket, char* IP, int port)
 				clientsocket = new CZQ_CustomIOCPClientSocket();
 		}
 		if (clientsocket == nullptr) return;
-
 		clientsocket->_socketHandle = _currentHandle;
 		clientsocket->_remoteAddress = IP;
 		clientsocket->_remotePort = port;

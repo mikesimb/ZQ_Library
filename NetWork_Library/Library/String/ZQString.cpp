@@ -956,11 +956,16 @@ void CZQString::CopyBeforeWrite()
 
 void CZQString::AllocBeforeWrite(int nLen)
 {
-	if (GetData()->nRefs > 1|| nLen > GetData()->nAllocLength)
+	if (m_pChData == NULL)
 	{
-		Release();
 		AllocBuffer(nLen);
 	}
+	else
+		if (GetData()->nRefs > 1|| nLen > GetData()->nAllocLength)
+		{
+			Release();
+			AllocBuffer(nLen);
+		}
 	assert(GetData()->nRefs <= 1);
 }
 
