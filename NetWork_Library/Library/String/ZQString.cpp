@@ -800,7 +800,7 @@ void CZQString::FreeExtra()
 	{
 		CZQStringData* pOldData = GetData();
 		AllocBuffer(GetData()->nDataLength);
-		memcpy(m_pChData, pOldData->data(), pOldData->nDataLength * sizeof(TCHAR));
+		memcpy(m_pChData, pOldData->data(), pOldData->nDataLength * sizeof(char));
 		assert(m_pChData[GetData()->nDataLength] ==CHRNIL);
 		CZQString::Release(pOldData);
 	}
@@ -871,8 +871,8 @@ const CZQString& CZQString::operator=(char ch)
 const CZQString& CZQString::operator=(char * lpsz)
 {
 //	assert((lpsz == null )||IsValidAddress(lpsz));
-	assert(lpsz == NULL);
-	assert(IsValidAddress(lpsz,SafeStrlen(lpsz)));
+	assert((lpsz == NULL)||IsValidAddress(lpsz,SafeStrlen(lpsz)));
+	//assert();
 	AssignCopy(SafeStrlen(lpsz), lpsz);
 	return *this;
 
@@ -956,7 +956,7 @@ void CZQString::CopyBeforeWrite()
 
 void CZQString::AllocBeforeWrite(int nLen)
 {
-	if (GetData()->nRefs > 1 && nLen > GetData()->nAllocLength)
+	if (GetData()->nRefs > 1|| nLen > GetData()->nAllocLength)
 	{
 		Release();
 		AllocBuffer(nLen);
@@ -967,9 +967,9 @@ void CZQString::AllocBeforeWrite(int nLen)
 void CZQString::AssignCopy(int nSrcLen, char * lpszSrcData)
 {
 	AllocBeforeWrite(nSrcLen);
-	memcpy(m_pChData, lpszSrcData, nSrcLen * sizeof(TCHAR));
+	memcpy(m_pChData, lpszSrcData, nSrcLen * sizeof(char));
 	GetData()->nDataLength = nSrcLen;
-	m_pChData[nSrcLen] = '/0';
+	m_pChData[nSrcLen] = '\0';
 }
 
 void CZQString::AllocCopy(CZQString& dest, int nCopyLen, int nCopyIndex, int nExtraLen) const
@@ -982,7 +982,7 @@ void CZQString::AllocCopy(CZQString& dest, int nCopyLen, int nCopyIndex, int nEx
 	else
 	{
 		dest.AllocBuffer(nNewLen);
-		memcpy(dest.m_pChData, m_pChData + nCopyIndex, nCopyLen * sizeof(TCHAR));
+		memcpy(dest.m_pChData, m_pChData + nCopyIndex, nCopyLen * sizeof(char));
 	}
 }
 
@@ -1307,7 +1307,7 @@ void CZQString::ConcatInPlace(int nSrcLen, char * lpszSrcData)
 	}
 	else
 	{//直接往后添加
-		memcpy(m_pChData + GetData()->nDataLength, lpszSrcData, nSrcLen * sizeof(TCHAR));
+		memcpy(m_pChData + GetData()->nDataLength, lpszSrcData, nSrcLen * sizeof(char));
 		GetData()->nDataLength += nSrcLen;
 		assert(GetData()->nDataLength <= GetData()->nAllocLength);
 		m_pChData[GetData()->nDataLength] = CHRNIL;
