@@ -134,7 +134,7 @@ void CZQ_WorkThread::Execute()
 		{
 			pblock = nullptr;
 			clientsocket = nullptr;
-			if (!_parentSocket->isAcriveed()) break;
+			if (!_parentSocket->isActiveed()) break;
 			ret = GetQueuedCompletionStatus(_parentSocket->getIOCPHandle(), &dwBytesXfered,
 				(PULONG_PTR)&clientsocket,(LPOVERLAPPED*)(&pblock), INFINITE);
 			if ((uint32_t)pblock == SHUTDOWN_FLAG)

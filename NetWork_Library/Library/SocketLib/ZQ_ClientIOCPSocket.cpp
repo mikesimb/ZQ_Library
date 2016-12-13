@@ -50,7 +50,7 @@ void CZQ_ClientIOCPSocket::setActive(bool value)
 			delete _workThread;
 
 		}
-		_workThread = new CZQ_WorkThread(this,false);
+		_workThread = new CZQ_WorkThread(this,true);
 	}
 	else
 	{
